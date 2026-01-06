@@ -1,62 +1,87 @@
-The IT Helpdesk Ticketing System is a full-stack application designed to manage IT support requests efficiently.
-It allows users to raise tickets, track their status, and receive resolutions, while administrators can assign, prioritize, and resolve issues based on SLA and severity.
+📌 Project Overview
 
-This project simulates a real-world enterprise IT support environment.
+This project implements a Recurrent Neural Network (RNN) to automatically classify IT Helpdesk support tickets based on their textual descriptions.
 
-🎯 Objectives
+The system helps IT teams reduce manual effort, prioritize incidents faster, and improve SLA compliance by categorizing incoming tickets into predefined issue types such as Hardware, Software, Network, and Access.
 
-Centralize IT issue tracking
+This project simulates a real-world enterprise IT support automation use case.
 
-Reduce resolution time through prioritization
+🎯 Problem Statement
 
-Improve transparency for users and admins
-
-Automate ticket classification (optional ML feature)
+Manual ticket categorization in IT service desks is time-consuming and error-prone.
+This project uses sequence modeling with RNNs to understand ticket text and automatically assign the correct category.
 
 ✨ Key Features
 
-User registration & authentication
+-Text-based ticket classification
 
-Create, update, and close tickets
+-Automated issue categorization using RNN
 
-Priority levels (Low / Medium / High / Critical)
+-Handles variable-length text sequences
 
-Ticket status tracking (Open / In Progress / Resolved / Closed)
+-Tokenization and padding for NLP input
 
-Admin dashboard for ticket assignment
+-Supports multi-class classification
 
-Role-based access control (User / Admin)
+-Easily extendable to LSTM / GRU
 
-SLA tracking
+-Modular and clean ML pipeline
 
-(Optional) ML-based ticket categorization using NLP
+🧠 Model Details
 
-🛠️ Tech Stack
+-Model Type: Recurrent Neural Network (RNN)
 
-Backend
+-Variant: LSTM / GRU (configurable)
+
+-Input: Tokenized text sequences
+
+-Embedding Layer: Used for word representation
+
+-Output: Issue category
+
+-Loss Function: Categorical Cross-Entropy
+
+-Optimizer: Adam
+
+-Evaluation Metrics: Accuracy, Precision, Recall, F1-Score
+
+-Programming Language
 
 Python
 
-FastAPI / Flask
+Machine Learning & NLP
 
-Frontend
+TensorFlow / Keras (or PyTorch)
 
-HTML, CSS, JavaScript / React
+NumPy
 
-Database
-
-MySQL / PostgreSQL / SQLite
-
-Machine Learning (Optional)
+Pandas
 
 Scikit-learn
 
-NLP for issue classification
-
-RNN 
-
-Tools
+-Tools
 
 Git & GitHub
 
-Postman (API testing)
+Jupyter Notebook / VS Code
+
+rnn-helpdesk-ticket-classification/
+│
+├── data/
+│   └── sample_data.csv
+│
+├── notebooks/
+│   └── rnn_training.ipynb
+│
+├── scripts/
+│   ├── preprocess.py
+│   ├── train_model.py
+│   └── evaluate.py
+│
+├── models/
+│   └── rnn_model.h5
+│
+├── requirements.txt
+└── README.md
+
+
