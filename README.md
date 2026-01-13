@@ -1,87 +1,160 @@
-📌 Project Overview
+🧠 IT Helpdesk Ticket Classification using RNN
 
-This project implements a Recurrent Neural Network (RNN) to automatically classify IT Helpdesk support tickets based on their textual descriptions.
+This project implements a Recurrent Neural Network (RNN) to automatically classify IT helpdesk support tickets based on their textual descriptions.
+It simulates a real-world enterprise IT support system where incoming tickets are automatically routed to the correct support team.
 
-The system helps IT teams reduce manual effort, prioritize incidents faster, and improve SLA compliance by categorizing incoming tickets into predefined issue types such as Hardware, Software, Network, and Access.
+📌 Business Problem
 
-This project simulates a real-world enterprise IT support automation use case.
+Large IT teams receive thousands of support tickets every day.
+Manually reading and assigning tickets causes:
 
-🎯 Problem Statement
+Delays
 
-Manual ticket categorization in IT service desks is time-consuming and error-prone.
-This project uses sequence modeling with RNNs to understand ticket text and automatically assign the correct category.
+SLA violations
 
-✨ Key Features
+Increased workload
 
--Text-based ticket classification
+This system predicts the issue category of a ticket so it can be routed instantly.
 
--Automated issue categorization using RNN
+Example categories:
 
--Handles variable-length text sequences
+Hardware Issue
 
--Tokenization and padding for NLP input
+Software Issue
 
--Supports multi-class classification
+Network Problem
 
--Easily extendable to LSTM / GRU
+Password Reset
 
--Modular and clean ML pipeline
+Access Request
 
-🧠 Model Details
+System Error
 
--Model Type: Recurrent Neural Network (RNN)
+Security Incident
 
--Variant: LSTM / GRU (configurable)
+🚀 Solution
 
--Input: Tokenized text sequences
+We use an RNN-based deep learning model trained on historical ticket descriptions to predict the category of a new ticket automatically.
 
--Embedding Layer: Used for word representation
+The system:
 
--Output: Issue category
+Extracts text from PDF and JSON tickets
 
--Loss Function: Categorical Cross-Entropy
+Builds a training dataset
 
--Optimizer: Adam
+Trains an RNN text classifier
 
--Evaluation Metrics: Accuracy, Precision, Recall, F1-Score
+Exposes predictions through an API
 
--Programming Language
+🧠 Machine Learning Pipeline
+PDF / JSON Tickets
+        ↓
+Text Extraction
+        ↓
+Text Cleaning & Tokenization
+        ↓
+RNN Model Training
+        ↓
+Model Evaluation
+        ↓
+Prediction API
+
+📁 Project Structure
+it-helpdesk-ticket-classifier-rnn/
+│
+├── src/
+│   ├── build_dataset.py     # Extracts text from PDF & JSON files
+│   ├── preprocess.py       # Text cleaning & tokenization
+│   ├── model.py            # RNN architecture
+│   ├── train.py            # Model training
+│   └── evaluate.py         # Performance evaluation
+│
+├── api/
+│   └── app.py              # REST API for predictions
+│
+├── data/
+│   ├── .gitkeep
+│   └── README.md           # Dataset instructions
+│
+├── models/                 # Trained models (not committed)
+├── requirements.txt
+├── .gitignore
+└── README.md
+
+📊 Dataset
+
+The project uses IT helpdesk ticket data in PDF and JSON format.
+
+Due to privacy and size constraints, the dataset is not included in this repository.
+Place your dataset files inside the data/ folder before running the project.
+
+⚙️ Installation
+pip install -r requirements.txt
+
+▶️ Build Dataset
+
+Extract text from tickets and create training data:
+
+python src/build_dataset.py
+
+▶️ Train the RNN Model
+python src/train.py
+
+🌐 Run the Prediction API
+python api/app.py
+
+
+API runs at:
+
+http://127.0.0.1:8000
+
+🔮 Sample API Request
+{
+  "ticket_text": "User is unable to connect to WiFi network in office"
+}
+
+
+Response:
+
+{
+  "predicted_category": "Network_Problem"
+}
+
+🛠 Tech Stack
 
 Python
 
-Machine Learning & NLP
+TensorFlow (RNN)
 
-TensorFlow / Keras (or PyTorch)
+Pandas, NumPy
 
-NumPy
+NLTK, spaCy
 
-Pandas
+PyPDF2
 
-Scikit-learn
+Flask / FastAPI
 
--Tools
+💼 Why This Project Matters
 
-Git & GitHub
+This project demonstrates:
 
-Jupyter Notebook / VS Code
+Natural Language Processing
 
-rnn-helpdesk-ticket-classification/
-│
-├── data/
-│   └── sample_data.csv
-│
-├── notebooks/
-│   └── rnn_training.ipynb
-│
-├── scripts/
-│   ├── preprocess.py
-│   ├── train_model.py
-│   └── evaluate.py
-│
-├── models/
-│   └── rnn_model.h5
-│
-├── requirements.txt
-└── README.md
+Deep Learning with RNN
+
+Data extraction from real documents
+
+End-to-end ML pipeline
+
+Production-style API deployment
+
+This is a real enterprise use case, not a toy example.
+
+👨‍💻 Author
+
+Syed Sadath G
+Data Scientist | NLP | Deep Learning
+
+
 
 
